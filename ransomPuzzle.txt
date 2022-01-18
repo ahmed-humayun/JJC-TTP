@@ -1,0 +1,49 @@
+def can_construct(ransom_note, magazine):
+    if ransom_note == '':  
+        # if ransom_note is an empty string, return true 
+        # an empty str can be constructed from any string
+        return True
+
+    if magazine == '':
+        # if magazine is an empty string, return True
+        # no string can be constructed from an empty string
+        return False
+
+    letters_counter = {} #an empty dictionary to hold the charchers in 
+    # magazine and the number of time it occurs
+
+    for letter in magazine: # loops through each charchers in magazine
+        if letter in letters_counter: 
+        #if the letter is in letters_counter than adds one
+        # basically it keeps count of each occurence of that letter
+            letters_counter[letter] += 1
+        
+        else:
+            letters_counter[letter] = 1
+            # if the letter is not already in the dictionary, sets it counter to 1
+            # meaning the letter occured once
+
+
+    
+    for char in ransom_note:
+    # loops through each letter in ransom_note
+        if char not in letters_counter or letters_counter[char] == 0:
+            return False
+        # if letter is not in dictionary returns False
+        # or if the letter counter is zero, 
+        # meaning the letter occured more times in ransom_note than in magazine
+        
+        letters_counter[char] -= 1
+        # if letter is found counter decreses
+
+    return True
+ 
+ 
+ 
+   
+if(can_construct('abcb', 'abcdef')):
+    print('true')
+    
+else:
+    print('false')
+    
