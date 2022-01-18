@@ -1,3 +1,5 @@
+# worked with team leader syeda 
+
 def can_construct(ransom_note, magazine):
     if ransom_note == '':  
         # if ransom_note is an empty string, return true 
